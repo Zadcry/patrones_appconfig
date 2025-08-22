@@ -2,7 +2,7 @@
 backend:
   replicaCount: 1
   image:
-    repository: tu-registro/backend-app
+    repository: zadcry/backend-app
     tag: "1.0.0"
   resources:
     # limits:
@@ -16,7 +16,7 @@ backend:
 frontend:
   replicaCount: 1
   image:
-    repository: tu-registro/frontend-app
+    repository: zadcry/frontend-app
     tag: "1.0.0"
   service:
     type: ClusterIP # Usamos ClusterIP porque el Ingress se encarga del acceso externo
