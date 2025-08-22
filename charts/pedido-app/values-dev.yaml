@@ -6,7 +6,23 @@ backend:
       memory: 256Mi
 frontend:
   replicaCount: 1
+
 db:
   primary:
+    # Solución para "Insufficient cpu"
+    # Reducimos la solicitud de CPU a un cuarto de núcleo (250m)
+    # y la memoria a 512Mi.
+    resources:
+      requests:
+        cpu: "250m"
+        memory: "512Mi"
+      limits:
+        cpu: "500m"
+        memory: "1Gi"
+
     persistence:
-      size: 1Gi # Menos espacio para dev
+      enabled: true
+      # Solución para "unbound ... PersistentVolumeClaims"
+      # Nos aseguramos de especificar el StorageClass correcto.
+      storageClass: "do-block-storage"
+      size: 1Gi
