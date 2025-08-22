@@ -1,0 +1,15 @@
+backend:
+  replicaCount: 3 # Más réplicas para prod
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+frontend:
+  replicaCount: 2
+db:
+  primary:
+    persistence:
+      size: 20Gi # Más espacio para prod
+  auth:
+    # En un escenario real, esto vendría de un gestor de secretos como Vault
+    password: "a-very-strong-production-password"

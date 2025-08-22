@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pedido-app-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/tu-usuario/tu-nuevo-repo-gitops.git'
+    targetRevision: HEAD
+    path: charts/pedido-app
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-prod.yaml # Sobrescribe con los valores de PROD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: pedido-app-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

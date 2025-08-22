@@ -1,0 +1,12 @@
+backend:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+frontend:
+  replicaCount: 1
+db:
+  primary:
+    persistence:
+      size: 1Gi # Menos espacio para dev

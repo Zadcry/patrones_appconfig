@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pedido-app-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/tu-usuario/tu-nuevo-repo-gitops.git' # URL de tu repo
+    targetRevision: HEAD
+    path: charts/pedido-app
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-dev.yaml # Sobrescribe con los valores de DEV
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: pedido-app-dev # Despliega en un namespace de dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true # ArgoCD creará el namespace si no existe

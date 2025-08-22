@@ -1,0 +1,12 @@
+apiVersion: v2
+name: pedido-app
+description: A Helm chart for deploying the Pedido application stack.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+dependencies:
+- name: postgresql
+  version: "12.x.x" # Usa una versión estable
+  repository: "https://charts.bitnami.com/bitnami"
+  alias: db # Usaremos 'db' para referirnos a este subchart

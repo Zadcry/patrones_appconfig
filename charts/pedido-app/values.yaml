@@ -1,0 +1,35 @@
+# Configuración del Backend
+backend:
+  replicaCount: 1
+  image:
+    repository: tu-registro/backend-app
+    tag: "1.0.0"
+  resources:
+    # limits:
+    #  cpu: 100m
+    #  memory: 128Mi
+    # requests:
+    #  cpu: 100m
+    #  memory: 128Mi
+
+# Configuración del Frontend
+frontend:
+  replicaCount: 1
+  image:
+    repository: tu-registro/frontend-app
+    tag: "1.0.0"
+  service:
+    type: ClusterIP # Usamos ClusterIP porque el Ingress se encarga del acceso externo
+  resources: {}
+
+# Configuración de la Base de Datos (subchart 'db')
+# Estos valores sobreescriben los defaults del chart de Bitnami
+db:
+  auth:
+    username: "user"
+    password: "password123"
+    database: "pedidodb"
+  primary:
+    persistence:
+      enabled: true
+      size: 8Gi
