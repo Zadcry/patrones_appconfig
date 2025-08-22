@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/tu-usuario/tu-nuevo-repo-gitops.git' # URL de tu repo
+    repoURL: 'https://github.com/Zadcry/patrones_appconfig.git' # URL de tu repo
     targetRevision: HEAD
     path: charts/pedido-app
     helm:
