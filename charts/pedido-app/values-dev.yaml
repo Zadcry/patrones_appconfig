@@ -14,10 +14,10 @@ db:
     # y la memoria a 512Mi.
     resources:
       requests:
-        cpu: "250m"
+        cpu: "100m" # <-- Bajar este valor
         memory: "512Mi"
       limits:
-        cpu: "500m"
+        cpu: "250m" # <-- También puedes bajar el límite
         memory: "1Gi"
 
     persistence:
