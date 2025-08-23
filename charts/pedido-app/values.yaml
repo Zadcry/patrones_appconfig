@@ -17,7 +17,7 @@ frontend:
   replicaCount: 1
   image:
     repository: zadcry/frontend-app
-    tag: "1.1.0"
+    tag: "1.1.1"
   service:
     type: ClusterIP # Usamos ClusterIP porque el Ingress se encarga del acceso externo
   resources: {}
