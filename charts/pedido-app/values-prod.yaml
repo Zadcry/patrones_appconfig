@@ -17,7 +17,6 @@ db:
     persistence:
       size: 20Gi # Más espacio para prod
   auth:
-    # En un escenario real, esto vendría de un gestor de secretos como Vault
     password: "a-very-strong-production-password"
 
 ingress:

@@ -14,25 +14,20 @@ frontend:
   replicaCount: 1
   image:
     repository: zadcry/frontend-app
-    tag: "1.1.2"
+    tag: "1.1.1"
 
 db:
   primary:
-    # Solución para "Insufficient cpu"
-    # Reducimos la solicitud de CPU a un cuarto de núcleo (250m)
-    # y la memoria a 512Mi.
     resources:
       requests:
-        cpu: "100m" # <-- Bajar este valor
+        cpu: "100m"
         memory: "512Mi"
       limits:
-        cpu: "250m" # <-- También puedes bajar el límite
+        cpu: "250m"
         memory: "1Gi"
 
     persistence:
       enabled: true
-      # Solución para "unbound ... PersistentVolumeClaims"
-      # Nos aseguramos de especificar el StorageClass correcto.
       storageClass: "do-block-storage"
       size: 1Gi
 
