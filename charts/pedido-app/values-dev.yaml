@@ -1,5 +1,8 @@
 backend:
   replicaCount: 1
+  image:
+    repository: zadcry/backend-app
+    tag: "1.0.0"
   resources:
     requests:
       cpu: "50m" 
@@ -9,6 +12,9 @@ backend:
       memory: "256Mi"
 frontend:
   replicaCount: 1
+  image:
+    repository: zadcry/frontend-app
+    tag: "1.1.2"
 
 db:
   primary:
