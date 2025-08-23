@@ -31,4 +31,4 @@ db:
       size: 1Gi
 
 ingress:
-  pathPrefix: /dev
+  host: "dev.patrones.com"

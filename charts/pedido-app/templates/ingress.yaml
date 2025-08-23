@@ -5,18 +5,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: {{ .Values.ingress.host | quote }}
+    http:
       paths:
-      # Regla para el Backend: Coincide con todo lo que empiece con /dev/api o /prod/api
-      - path: {{ .Values.ingress.pathPrefix }}/api
+      - path: /api
         pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}-backend-service
             port:
               number: 80
-      # Regla para el Frontend: Coincide con todo lo que empiece con /dev o /prod
-      - path: {{ .Values.ingress.pathPrefix }}
+      - path: /
         pathType: Prefix
         backend:
           service:

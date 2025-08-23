@@ -15,4 +15,4 @@ db:
     password: "a-very-strong-production-password"
 
 ingress:
-  pathPrefix: /prod
+  host: "prod.patrones.com"
