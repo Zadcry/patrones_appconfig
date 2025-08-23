@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-backend-config
 data:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://pedido-app-dev-db:5432/{{ .Values.db.auth.database }}
+  SPRING_DATASOURCE_URL: jdbc:postgresql://{{ .Release.Name }}-db:5432/{{ .Values.db.auth.database }}
+  SERVER_SERVLET_CONTEXT_PATH: {{ .Values.ingress.pathPrefix }}
