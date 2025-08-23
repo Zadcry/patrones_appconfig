@@ -31,4 +31,4 @@ db:
       size: 1Gi
       
 ingress:
-  host: "dev.mi-aplicacion.com"
+  host: "dev.patrones.com"
