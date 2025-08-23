@@ -2,24 +2,22 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Release.Name }}-ingress
-  annotations:
-    # Anotación clave para reescribir/cortar las rutas
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: {{ .Values.ingress.pathPrefix }}(/api/.*)
-        pathType: ImplementationSpecific
+      # Regla para el Backend: Coincide con todo lo que empiece con /dev/api o /prod/api
+      - path: {{ .Values.ingress.pathPrefix }}/api
+        pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}-backend-service
             port:
               number: 80
-      - path: {{ .Values.ingress.pathPrefix }}(/.*)
-        pathType: ImplementationSpecific
+      # Regla para el Frontend: Coincide con todo lo que empiece con /dev o /prod
+      - path: {{ .Values.ingress.pathPrefix }}
+        pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}-frontend-service
