@@ -29,6 +29,6 @@ db:
       # Nos aseguramos de especificar el StorageClass correcto.
       storageClass: "do-block-storage"
       size: 1Gi
-      
+
 ingress:
-  host: "dev.patrones.com"
+  pathPrefix: /dev
