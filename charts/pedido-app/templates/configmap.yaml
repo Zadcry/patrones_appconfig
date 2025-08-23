@@ -4,4 +4,4 @@ metadata:
   name: {{ .Release.Name }}-backend-config
 data:
   # Construimos la URL de la DB usando el nombre del servicio del subchart de postgresql
-  SPRING_DATASOURCE_URL: jdbc:postgresql://{{ .Release.Name }}-db-postgresql:5432/{{ .Values.db.auth.database }}
+  SPRING_DATASOURCE_URL: jdbc:postgresql://pedido-app-dev-db:5432/{{ .Values.db.auth.database }}
