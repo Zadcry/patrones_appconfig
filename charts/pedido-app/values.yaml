@@ -33,3 +33,6 @@ db:
     persistence:
       enabled: true
       size: 8Gi
+
+ingress:
+  host: "default.mi-aplicacion.com"

@@ -13,3 +13,6 @@ db:
   auth:
     # En un escenario real, esto vendría de un gestor de secretos como Vault
     password: "a-very-strong-production-password"
+
+ingress:
+  host: "app.mi-aplicacion.com"
