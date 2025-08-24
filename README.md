@@ -1,5 +1,11 @@
 # Examen Patrones Corte 1
 
+# Integrantes:
+1. Santiago Andrés Araque
+2. Camilo Arciniegas Guerrero
+3. Sergio Nieto Meneses
+4. Julián Mauricio Zafra 
+
 ## Contenido
 
 1. [Instalación Manual con Helm](#instalación-manual-con-helm)
